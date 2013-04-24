@@ -50,24 +50,32 @@ namespace Web
 
         protected override void OnLoad(EventArgs e)
         {
-            this.Authorization = new WebOAuthAuthorization(this.TokenManager, this.AccessToken);
-
-            if (!IsPostBack)
+            if (ConfigurationManager.AppSettings["XingConsumerKey"] == "xxx" || (ConfigurationManager.AppSettings["XingConsumerSecret"] == "xxx"))
             {
-                string accessToken = this.Authorization.CompleteAuthorize();
-                if (accessToken != null)
-                {
-                    this.AccessToken = accessToken;
-                    Response.Redirect(Request.Path);
-                }
+                liResult.Text = "Set XingConsumerKey and XingConsumerSecret in web.config";
+            }
+            else
+            {
 
-                if (AccessToken == null)
+                this.Authorization = new WebOAuthAuthorization(this.TokenManager, this.AccessToken);
+
+                if (!IsPostBack)
                 {
-                    this.Authorization.BeginAuthorize();
-                }
-                else
-                {
-                    Test();
+                    string accessToken = this.Authorization.CompleteAuthorize();
+                    if (accessToken != null)
+                    {
+                        this.AccessToken = accessToken;
+                        Response.Redirect(Request.Path);
+                    }
+
+                    if (AccessToken == null)
+                    {
+                        this.Authorization.BeginAuthorize();
+                    }
+                    else
+                    {
+                        Test();
+                    }
                 }
             }
 

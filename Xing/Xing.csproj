@@ -39,10 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetOpenAuth">
-      <HintPath>E:\projects\empiriacrm\social\GooglePlus\GooglePlus\bin\Release\DotNetOpenAuth.dll</HintPath>
+      <HintPath>E:\projects\empiria\social\Xing\Xing\bin\Debug\DotNetOpenAuth.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\empiria-other\iContact\iContact\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>E:\projects\empiria\social\Xing\Xing\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
